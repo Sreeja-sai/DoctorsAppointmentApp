@@ -1,0 +1,55 @@
+### 1. Signup
+POST http://localhost:3000/signup
+Content-Type: application/json
+
+{
+    "name": "sreeja",
+    "email": "sreejameesala123@gmail.com",
+    "password": "sreeja_medical@123"
+}
+
+###
+
+### 2. Login
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "sreejameesala123@gmail.com",
+  "password": "sreeja_medical@123"
+}
+
+# 🔐 Copy the token from the response and use it in the following protected requests
+
+###
+
+### 3. Get All Doctors (Public)
+GET http://localhost:3000/doctors
+
+###
+
+### 4. Book Appointment (Protected)
+POST http://localhost:3000/bookings
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzcmVlamFtZWVzYWxhMTIzQGdtYWlsLmNvbSIsImlhdCI6MTc1NDI3MjM3Mn0.9tWyLykdzUaEsQmoTYz7f5xmZm9V-si6RqOaCKy06co
+
+{
+  "name": "sreeja",
+  "email": "sreejameesala123@gmail.com",
+  "doctor_id": 1,
+  "date": "2025-08-05",
+  "time": "15:30"
+}
+
+###
+
+### 5. Get User’s Bookings (Protected)
+GET http://localhost:3000/my-bookings/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzcmVlamFtZWVzYWxhMTIzQGdtYWlsLmNvbSIsImlhdCI6MTc1NDI3Mjg0MX0.b9iATp87Huk9fpMNKZQnZ0wyTkNiFiOdzNf8TZft7Vg
+
+###
+
+### Delete a booking by booking ID
+DELETE http://localhost:3000/bookings/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzcmVlamFtZWVzYWxhMTIzQGdtYWlsLmNvbSIsImlhdCI6MTc1NDI3MzIxNX0.by4GGAPyq4mJY-bel7W4dFALiIzKXfze1ke9gufIvVI
+
